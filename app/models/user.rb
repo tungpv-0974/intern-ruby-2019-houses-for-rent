@@ -1,11 +1,14 @@
 class User < ApplicationRecord
-  USER_PARAMS = %i(first_name last_name email password password_confirmation).freeze
+  USER_PARAMS =
+    %i(first_name last_name email password password_confirmation).freeze
 
   has_many :posts, dependent: :destroy
   has_many :post_favorites, dependent: :destroy
   has_many :post_likes, through: :post_favorites, source: :post
   belongs_to :identify_card, optional: true, dependent: :destroy
   belongs_to :ward, optional: true
+
+  attr_accessor :remember_token, :reset_token
 
   before_save :downcase_email
 
@@ -17,6 +20,36 @@ class User < ApplicationRecord
     format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false}
 
   has_secure_password
+
+  def authenticated? attribute, token
+    digest = send "#{attribute}_digest"
+    return unless digest
+    BCrypt::Password.new(digest).is_password? token
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attributes remember_digest: User.digest(remember_token)
+  end
+
+  def forget
+    update_attributes remember_digest: nil
+  end
+
+  class << self
+    def digest string
+      cost = if ActiveModel::SecurePassword.min_cost
+               BCrypt::Engine::MIN_COST
+             else
+               BCrypt::Engine.cost
+             end
+      BCrypt::Password.create(string, cost: cost)
+    end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
 
   private
 
