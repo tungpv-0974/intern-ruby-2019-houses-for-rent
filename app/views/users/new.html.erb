@@ -1,0 +1,28 @@
+<% provide :title, t("views.users.new.title") %>
+<div class="container my-5 py-5 z-depth-1">
+  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 text-center">
+        <%= form_for @user, url: signup_path do |f| %>
+          <h2 class="mb-4"><%= t "views.users.new.title" %></h2>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="form-row mb-4">
+            <div class="col">
+              <%= f.text_field :first_name, class: "form-control", placeholder: t("views.users.new.firt_name") %>
+            </div>
+            <div class="col">
+              <%= f.text_field :last_name, class: "form-control", placeholder: t("views.users.new.last_name") %>
+            </div>
+          </div>
+          <%= f.email_field :email, class: "form-control mb-4", placeholder: t("views.users.new.email") %>
+          <%= f.password_field :password, class: "form-control", placeholder: t("views.users.new.pass") %>
+          <small id="defaultPasswordBlock" class="form-text text-muted mb-4">
+            <%= t "views.users.new.at_least_char"%>
+          </small>
+          <%= f.password_field :password_confirmation, class: "form-control mb-4", placeholder: t("views.users.new.pass_confirm") %>
+          <%= f.submit t("views.users.new.create_my_account"), class: "btn btn-info my-4 btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
