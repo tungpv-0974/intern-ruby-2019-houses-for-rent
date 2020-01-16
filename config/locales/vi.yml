@@ -1,26 +1,24 @@
 vi:
   views:
     base_title: "TÌM KIẾM NHÀ TRỌ"
-    language: "LANGUAGE"
+    language: "Ngôn Ngữ"
+    error: "Lỗi"
     header:
       phone: "tel:++84348034499"
-      rent_proporty: "Rent Property"
-      login_reg: "login / register"
       login: "ĐĂNG NHẬP"
       registration: "ĐĂNG KÝ"
       create_post: "ĐĂNG TIN"
       home: "TRANG CHỦ"
       post: "TIN MỚI"
-      about: "ABOUT"
-      branch: "Branch"
+      about: "Về Chúng Tôi"
       english: "TIẾNG ANH"
       vietnamse: "TIẾNG VIỆT"
     footer:
       about_us: "Chúng Tôi"
       content_about: "Luôn cập nhật tất cả thông tin về thị trường nhà đất trong toàn quốc"
-      newsletter: "Đăng ký nhận tin"
-      stay_update_with_out_latest: "Stay update with our latest"
     static_pages:
+      error:
+        alert: "Bạn đã nhập sai %{count} lỗi"
       find_house_favorate: "TÌM KIẾM CĂN HỘ MONG MUỐN CỦA BẠN"
       baner:
         choose_locations: "Tỉnh/Thành Phố"
@@ -37,25 +35,26 @@ vi:
       title: "Tìm Nhà Tại Mọi Thành Phố"
       who_are_in: "Dành cho ai yêu thích với hệ thống sinh thái thân thiện."
       for_rent: "Cho Thuê"
-      four_bed_duplex: "04 Bed Duplex"
-      price: "$3.5M"
-      bed: "Bed: 04"
-      bath: "Bath: 03"
-      area: "Area: 750sqm"
       yes: "Có"
       no: "Không"
-      internet: " Internet: "
-      cleaning: "Sạch Sẽ"
-      like: "15 Likes"
-      comment: "02 Comments"
     about:
-      why_choose_us: "Why Choose Us"
+      why_choose_us: "Tại sao nên chọn chúng tôi?"
       intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad."
-    blog:
-      feedback: "Feedback from our real clients"
-      it_wont_be: "It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game,"
     post:
       new_post: "TOÀN BỘ BÀI VIẾT"
       readmore: "Xem Thêm"
       content: "Nội dung"
       featured_post: "Bài Đăng Nổi Bật"
+    users:
+      new:
+        sign_up_ok: "Đăng ký tài khoản thành công"
+        title: "Đăng Ký"
+        firt_name: "Tên"
+        last_name: "Họ"
+        email: "Email"
+        pass: "Mật Khẩu"
+        pass_confirm: "Xác Nhận Mật Khẩu"
+        create_my_account: "Tạo tài khoản"
+        at_least_char: "Ít nhất 6 ký tự và 1 chữ số"
+        not_found: "Không tìm thấy người dùng"
+        create_fail: "Tạo tài khoản không thành công!"
