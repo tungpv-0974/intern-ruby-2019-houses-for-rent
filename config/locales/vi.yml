@@ -13,6 +13,9 @@ vi:
       about: "Về Chúng Tôi"
       english: "TIẾNG ANH"
       vietnamse: "TIẾNG VIỆT"
+      profile: "Hồ Sơ"
+      update_profile: "Chỉnh Sửa"
+      log_out: "Đăng Xuất"
     footer:
       about_us: "Chúng Tôi"
       content_about: "Luôn cập nhật tất cả thông tin về thị trường nhà đất trong toàn quốc"
@@ -58,3 +61,8 @@ vi:
         at_least_char: "Ít nhất 6 ký tự và 1 chữ số"
         not_found: "Không tìm thấy người dùng"
         create_fail: "Tạo tài khoản không thành công!"
+      login:
+        remember_me: "Ghi nhớ đăng nhập"
+        forgot_pass: "Quên mật khẩu"
+        not_a_member: "Chưa có tài khoản?"
+        invalid: "Đăng nhập không thành công!"
