@@ -21,6 +21,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  delegate :name, to: :ward, prefix: true, allow_nil: true
+  delegate :district_name, :province_name, to: :ward, allow_nil: true
+
   def authenticated? attribute, token
     digest = send "#{attribute}_digest"
     return unless digest
@@ -34,6 +37,13 @@ class User < ApplicationRecord
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def full_address
+    return unless ward_name
+    temp_address = [ward_name, district_name, province_name]
+    temp_address.unshift(address) if address
+    temp_address.join(" - ")
   end
 
   class << self
