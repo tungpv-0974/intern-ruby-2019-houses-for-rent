@@ -3,4 +3,5 @@ class District < ApplicationRecord
   has_many :wards, dependent: :destroy
 
   delegate :name, to: :province, prefix: true
+  delegate :districts, to: :province
 end

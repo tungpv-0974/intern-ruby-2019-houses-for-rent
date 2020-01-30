@@ -4,8 +4,8 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
 
-  def avatar_img avatar_url
+  def avatar_img
     avatar_default = Settings.avatar_default
-    avatar_url.nil? ? avatar_default : avatar_url
+    current_user.avatar_url? ? current_user.avatar_url.url : avatar_default
   end
 end

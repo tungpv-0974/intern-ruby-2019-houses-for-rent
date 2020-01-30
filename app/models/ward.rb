@@ -4,5 +4,5 @@ class Ward < ApplicationRecord
   has_many :users
 
   delegate :name, to: :district, prefix: true
-  delegate :province_name, to: :district
+  delegate :province_name, :province, :wards, :districts, to: :district
 end

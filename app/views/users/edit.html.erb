@@ -1,0 +1,66 @@
+<% provide :title, t("views.users.edit.edit_profile") %>
+
+<div class="container my-5 py-5 z-depth-1">
+  <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 text-center">
+        <%= form_for @user do |f| %>
+          <h2 class="mb-4"><%= t "views.users.edit.edit_profile" %></h2>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="form-row mb-4">
+            <div class="col">
+              <%= f.text_field :first_name, class: "form-control",
+                placeholder: t("views.users.new.firt_name") %>
+            </div>
+            <div class="col">
+              <%= f.text_field :last_name, class: "form-control",
+                placeholder: t("views.users.new.last_name") %>
+            </div>
+          </div>
+          <%= f.email_field :email, class: "form-control mb-4",
+            placeholder: t("views.users.new.email") %>
+          <%= f.text_field :phone, class: "form-control mb-4",
+            placeholder: t("views.users.new.phone") %>
+          <%= f.text_field :address, class: "form-control mb-4",
+            placeholder: t("views.users.new.address") %>
+          <div class="form-row mb-4">
+            <div class="col">
+              <%= select_tag :province, options_for_select(@provinces || [],
+                @user.province&.id), include_blank: t("views.address.select_province"),
+                  id: "select-province", class: "browser-default custom-select" %>
+            </div>
+            <div class="js-select-district col">
+              <%= render partial: "address/district" %>
+            </div>
+            <div class="js-select-ward" >
+              <%= render partial: "address/ward" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 col-xs-3 title">
+              <%= t "views.users.new.birthdate"%>
+            </div>
+            <div class="col-sm-9 col-xs-9">
+              <%= f.date_field :birthdate, max: Date.today, class: "form-control mb-4",
+                placeholder: t("views.users.new.birthdate") %>
+            </div>
+          </div>
+          <div class="custom-file mb-4">
+            <%= f.file_field :avatar_url, class: "custom-file-input", id: "inputGroupFile01" %>
+            <label class="custom-file-label" for="inputGroupFile01">
+              <%= t "views.users.show.change_avatar"%>
+            </label>
+          </div>
+          <%= f.password_field :password, class: "form-control",
+            placeholder: t("views.users.new.pass") %>
+          <small id="defaultPasswordBlock" class="form-text text-muted mb-4">
+            <%= t "views.users.new.at_least_char"%>
+          </small>
+          <%= f.password_field :password_confirmation, class: "form-control mb-4",
+            placeholder: t("views.users.new.pass_confirm") %>
+          <%= f.submit t("views.users.edit.update_profile"), class: "btn btn-info my-4 btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>

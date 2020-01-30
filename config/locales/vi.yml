@@ -48,7 +48,14 @@ vi:
       readmore: "Xem Thêm"
       content: "Nội dung"
       featured_post: "Bài Đăng Nổi Bật"
+    address:
+      province_not_found: "Không tìm thấy tỉnh"
+      district_not_found: "Không tìm thấy huyện"
+      select_province: "Chọn tỉnh"
+      select_district: "Chọn huyện"
+      select_ward: "Chọn xã"
     users:
+      user_not_found: "Không tìm thấy người dùng"
       new:
         sign_up_ok: "Đăng ký tài khoản thành công"
         title: "Đăng Ký"
@@ -57,6 +64,9 @@ vi:
         email: "Email: "
         pass: "Mật Khẩu"
         pass_confirm: "Xác Nhận Mật Khẩu"
+        phone: "Số điện thoại"
+        birthdate: "Ngày sinh"
+        address: "Địa chỉ"
         create_my_account: "Tạo tài khoản"
         at_least_char: "Ít nhất 6 ký tự và 1 chữ số"
         not_found: "Không tìm thấy người dùng"
@@ -72,3 +82,8 @@ vi:
         phone: "Số điện thoại:"
         birth_date: "Ngày sinh:"
         address: "Địa chỉ:"
+      edit:
+        edit_profile: "Chỉnh sửa thông tin!!!"
+        update_profile: "Cập nhật!"
+        update_success: "Cập nhật thông tin thành công!"
+        update_fail: "Cập nhật thông tin không thành công"

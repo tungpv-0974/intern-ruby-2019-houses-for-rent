@@ -13,7 +13,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="center">
-                      <%= image_tag avatar_img(current_user.avatar_url), id: "profile-image1", class: "img-circle" %>
+                      <%= image_tag avatar_img, id: "profile-image1", class: "img-circle" %>
                       <%= file_field_tag "profile-image-upload", class: "hidden" %>
                       <div class="text-muted"><%= t "views.users.show.change_avatar" %></div>
                     </div>
