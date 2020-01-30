@@ -63,3 +63,24 @@ aside {
 .avatar {
   max-width: 45px;
 }
+
+input.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+#profile-image1 {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bot-border {
+  border-bottom: 1px white solid;
+  margin: 5px 0;
+}

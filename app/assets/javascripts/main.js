@@ -73,4 +73,8 @@ $(document).on("ready turbolinks:load", function() {
     prefix: "",
     grid: true
   });
+
+  $('#profile-image1').on('click', function() {
+    $('#profile-image-upload').trigger('click');
+  });
 });

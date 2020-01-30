@@ -52,9 +52,9 @@ vi:
       new:
         sign_up_ok: "Đăng ký tài khoản thành công"
         title: "Đăng Ký"
-        firt_name: "Tên"
-        last_name: "Họ"
-        email: "Email"
+        first_name: "Tên: "
+        last_name: "Họ: "
+        email: "Email: "
         pass: "Mật Khẩu"
         pass_confirm: "Xác Nhận Mật Khẩu"
         create_my_account: "Tạo tài khoản"
@@ -66,3 +66,9 @@ vi:
         forgot_pass: "Quên mật khẩu"
         not_a_member: "Chưa có tài khoản?"
         invalid: "Đăng nhập không thành công!"
+      show:
+        profile: "Thông tin cá nhân"
+        change_avatar: "Đổi ảnh đại diện"
+        phone: "Số điện thoại:"
+        birth_date: "Ngày sinh:"
+        address: "Địa chỉ:"
