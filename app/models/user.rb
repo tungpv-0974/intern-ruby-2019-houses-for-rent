@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   USER_PARAMS =
-    %i(first_name last_name email password password_confirmation).freeze
+    %i(first_name last_name email phone address ward_id birthdate avatar_url
+      password password_confirmation).freeze
 
   has_many :posts, dependent: :destroy
   has_many :post_favorites, dependent: :destroy
@@ -12,6 +13,8 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  mount_uploader :avatar_url, PictureUploader
+
   validates :password, presence: true, length: {minimum: Settings.pass_minimum},
     allow_nil: true
   validates :first_name, :last_name, presence: true,
@@ -22,7 +25,8 @@ class User < ApplicationRecord
   has_secure_password
 
   delegate :name, to: :ward, prefix: true, allow_nil: true
-  delegate :district_name, :province_name, to: :ward, allow_nil: true
+  delegate :district_name, :province_name, :district, :province,
+    :wards, :districts, to: :ward, allow_nil: true
 
   def authenticated? attribute, token
     digest = send "#{attribute}_digest"

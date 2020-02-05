@@ -77,4 +77,28 @@ $(document).on("ready turbolinks:load", function() {
   $('#profile-image1').on('click', function() {
     $('#profile-image-upload').trigger('click');
   });
+
+  $(document).on('change', '#select-province', function(){
+    province_id = $(this).val();
+    $.ajax({
+      url: '/districts',
+      data: {
+        province_id: province_id
+      }
+    })
+
+    $('#user_ward_id').html($('<option>', {
+      text: I18n.t("views.address.select_ward")
+    }));
+  });
+
+  $(document).on('change', '#select-district', function(){
+    district_id = $(this).val();
+    $.ajax({
+      url: '/wards',
+      data: {
+        district_id: district_id
+      }
+    })
+  });
 });
