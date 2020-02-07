@@ -48,4 +48,16 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "address.district_not_found"
     redirect_to root_path
   end
+
+  def load_post
+    @post = Post.find_by id: params[:id]
+    return if @post
+
+    flash[:danger] = t "posts.show.not_found"
+    redirect_to root_path
+  end
+
+  def load_posts
+    @posts = Post.page(params[:page]).per Settings.paginates_per_page
+  end
 end

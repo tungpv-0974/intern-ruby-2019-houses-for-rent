@@ -15,6 +15,7 @@
 //= require i18n.js
 //= require i18n/translations
 //= require jquery3
+//= require jquery.flexslider
 //= require jquery_ujs
 //= require turbolinks
 //= require popper.min
