@@ -1,29 +1,29 @@
-<% provide :title, t("views.header.login") %>
+<% provide :title, t("header.login") %>
 
 <div class="container my-5 py-5 z-depth-1">
   <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
     <div class="row d-flex justify-content-center">
       <div class="col-md-6 text-center">
         <%= form_for(:session, url: login_path) do |f| %>
-          <h2 class="mb-4"><%= t "views.header.login" %></h2>
-          <%= f.email_field :email, class: "form-control mb-4", placeholder: t("views.users.new.email") %>
-          <%= f.password_field :password, class: "form-control mb-4", placeholder: t("views.users.new.pass") %>
+          <h2 class="mb-4"><%= t "header.login" %></h2>
+          <%= f.email_field :email, class: "form-control mb-4", placeholder: t("users.new.email") %>
+          <%= f.password_field :password, class: "form-control mb-4", placeholder: t("users.new.pass") %>
           <div class="d-flex justify-content-around">
             <div>
               <div class="custom-control custom-checkbox">
                 <%= f.check_box :remember_me, class: "custom-control-input", id: "defaultLoginFormRemember" %>
-                <label class="custom-control-label" for="defaultLoginFormRemember"><%= t "views.users.login.remember_me"%></label>
+                <label class="custom-control-label" for="defaultLoginFormRemember"><%= t "users.login.remember_me"%></label>
               </div>
             </div>
             <div>
-              <%= link_to t("views.users.login.forgot_pass"), "#" %>
+              <%= link_to t("users.login.forgot_pass"), "#" %>
             </div>
           </div>
-          <%= f.submit t("views.header.login"), class: "btn btn-info btn-block my-4" %>
+          <%= f.submit t("header.login"), class: "btn btn-info btn-block my-4" %>
         <% end %>
         <p>
-          <%= t "views.users.login.not_a_member" %>
-          <%= link_to t("views.users.new.title"), signup_path %>
+          <%= t "users.login.not_a_member" %>
+          <%= link_to t("users.new.title"), signup_path %>
         </p>
       </div>
     </div>

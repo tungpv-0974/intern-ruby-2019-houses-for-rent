@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     store_location
-    flash[:danger] = t "views.users.please_login"
+    flash[:danger] = t "users.please_login"
     redirect_to login_path
   end
 
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t "views.users.user_not_found"
+    flash[:danger] = t "users.user_not_found"
     redirect_to root_path
   end
 
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     @province = Province.find_by id: params[:province_id]
     return if @province
 
-    flash[:danger] = t "views.address.province_not_found"
+    flash[:danger] = t "address.province_not_found"
     redirect_to root_path
   end
 
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
     @district = District.find_by id: params[:district_id]
     return if @district
 
-    flash[:danger] = t "views.address.district_not_found"
+    flash[:danger] = t "address.district_not_found"
     redirect_to root_path
   end
 end

@@ -5,7 +5,7 @@
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading mb-50">
-            <h4><%= t "views.users.show.profile"%></h4>
+            <h4><%= t "users.show.profile"%></h4>
           </div>
           <div class="panel-body">
             <div class="box box-info">
@@ -15,7 +15,7 @@
                     <div class="center">
                       <%= image_tag avatar_img, id: "profile-image1", class: "img-circle" %>
                       <%= file_field_tag "profile-image-upload", class: "hidden" %>
-                      <div class="text-muted"><%= t "views.users.show.change_avatar" %></div>
+                      <div class="text-muted"><%= t "users.show.change_avatar" %></div>
                     </div>
                     <br>
                   </div>
@@ -24,7 +24,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                    <%= t "views.users.new.last_name"%>
+                    <%= t "users.new.last_name"%>
                   </div>
                   <div class="col-sm-7 col-xs-7">
                     <%= current_user.last_name %>
@@ -34,7 +34,7 @@
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                   <%= t "views.users.new.first_name"%>
+                   <%= t "users.new.first_name"%>
                   </div>
                   <div class="col-sm-7 col-xs-7">
                     <%= current_user.first_name %>
@@ -44,7 +44,7 @@
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                    <%= t "views.users.new.email"%>
+                    <%= t "users.new.email"%>
                   </div>
                   <div class="col-sm-7 col-xs-7 ">
                     <%= current_user.email %>
@@ -54,7 +54,7 @@
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                    <%= t "views.users.show.phone"%>
+                    <%= t "users.show.phone"%>
                   </div>
                   <div class="col-sm-7 col-xs-7">
                     <%= current_user.phone %>
@@ -64,7 +64,7 @@
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                    <%= t "views.users.show.birth_date"%>
+                    <%= t "users.show.birth_date"%>
                   </div>
                   <div class="col-sm-7 col-xs-7">
                     <%= current_user.birthdate&.strftime(Settings.format_date)%>
@@ -74,7 +74,7 @@
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">
-                    <%= t "views.users.show.address"%>
+                    <%= t "users.show.address"%>
                   </div>
                   <div class="col-sm-7 col-xs-7">
                     <%= current_user.full_address %>
