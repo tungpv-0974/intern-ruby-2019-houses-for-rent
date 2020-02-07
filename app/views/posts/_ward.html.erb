@@ -1,0 +1,3 @@
+<%= select_tag "post[ward_id]", options_for_select(@wards || []),
+  include_blank: t("views.address.select_ward"),
+    class: "browser-default custom-select" %>

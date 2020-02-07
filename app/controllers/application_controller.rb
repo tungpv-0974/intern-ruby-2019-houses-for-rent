@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     store_location
-    flash[:danger] = t "views.users.user_not_found"
+    flash[:danger] = t "views.users.please_login"
     redirect_to login_path
   end
 
@@ -35,6 +35,10 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = t "views.address.province_not_found"
     redirect_to root_path
+  end
+
+  def load_provinces
+    @provinces = Province.pluck :name, :id
   end
 
   def load_district
