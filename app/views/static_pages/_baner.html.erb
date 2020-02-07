@@ -4,56 +4,7 @@
     <div class="row fullscreen align-items-end justify-content-center">
       <div class="banner-content col-lg-12 col-md-12">
         <h1><%= t "static_pages.find_house_favorate"%></h1>
-        <div class="search-field">
-          <form class="search-form" action="#">
-            <div class="row">
-              <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
-              </div>
-              <div class="col-lg-3 col-md-6 col-xs-6">
-                <select name="location" class="app-select form-control" required>
-                  <option data-display="Choose locations"><%= t "static_pages.baner.choose_locations"%></option>
-                  <option value="1"><%= t "static_pages.baner.hanoi"%></option>
-                  <option value="2"><%= t "static_pages.baner.vinh"%></option>
-                  <option value="3"><%= t "static_pages.baner.hochiminh"%></option>
-                </select>
-              </div>
-              <div class="col-lg-3 col-md-6 col-xs-6">
-                <select name="location" class="app-select form-control" required>
-                  <option data-display="Choose locations"><%= t "static_pages.baner.choose_wards"%></option>
-                  <option value="1"><%= t "static_pages.baner.hanoi"%></option>
-                  <option value="2"><%= t "static_pages.baner.vinh"%></option>
-                  <option value="3"><%= t "static_pages.baner.hochiminh"%></option>
-                </select>
-              </div>
-              <div class="col-lg-3 col-md-6 col-xs-6">
-                <select name="location" class="app-select form-control" required>
-                  <option data-display="Choose locations"><%= t "static_pages.baner.choose_districts"%></option>
-                  <option value="1"><%= t "static_pages.baner.hanoi"%></option>
-                  <option value="2"><%= t "static_pages.baner.vinh"%></option>
-                  <option value="3"><%= t "static_pages.baner.hochiminh"%></option>
-                </select>
-              </div>
-              <div class="col-lg-3 col-md-6 col-xs-6">
-                <select name="location" class="app-select form-control" required>
-                  <option data-display="Choose locations"><%= t "static_pages.baner.type_house"%></option>
-                  <option value="1"><%= t "static_pages.baner.hanoi"%></option>
-                  <option value="2"><%= t "static_pages.baner.vinh"%></option>
-                </select>
-              </div>
-              <div class="col-lg-4 range-wrap">
-                <p><%= t "static_pages.baner.price_range"%></p>
-                <input type="text" id="range" value="" name="range" />
-              </div>
-              <div class="col-lg-4 range-wrap">
-                <p><%= t "static_pages.baner.area_range"%></p>
-                <input type="text" id="range2" value="" name="range" />
-              </div>
-              <div class="col-lg-4 d-flex justify-content-end">
-                <button class="primary-btn"><%= t "static_pages.baner.search_properties"%><span class="lnr lnr-arrow-right"></span></button>
-              </div>
-            </div>
-          </form>
-        </div>
+        <%= render "shared/search" %>
       </div>
     </div>
   </div>

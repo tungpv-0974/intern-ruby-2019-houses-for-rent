@@ -1,5 +1,5 @@
-$(document).on("ready turbolinks:load", function() {
-  $(".active-testimonial-carusel").owlCarousel({
+$(document).on('ready turbolinks:load', function() {
+  $('.active-testimonial-carusel').owlCarousel({
     items: 3,
     loop: true,
     margin: 30,
@@ -24,7 +24,7 @@ $(document).on("ready turbolinks:load", function() {
     }
   });
 
-  $(".active-testimonial-carusel").owlCarousel({
+  $('.active-testimonial-carusel').owlCarousel({
     items: 3,
     loop: true,
     margin: 30,
@@ -48,29 +48,29 @@ $(document).on("ready turbolinks:load", function() {
     }
   });
 
-  $("#range").ionRangeSlider({
+  $('#range').ionRangeSlider({
     hide_min_max: true,
     keyboard: true,
-    min: 200,
-    max: 100000,
-    from: 15000,
-    to: 100000,
-    type: "double",
+    min: 500000,
+    max: 10000000,
+    from: 1,
+    to: 10000000,
+    type: 'double',
     step: 1,
-    prefix: "",
+    prefix: '',
     grid: true
   });
 
-  $("#range2").ionRangeSlider({
+  $('#range2').ionRangeSlider({
     hide_min_max: true,
     keyboard: true,
-    min: 50,
-    max: 1500,
-    from: 250,
-    to: 1500,
-    type: "double",
+    min: 10,
+    max: 100,
+    from: 15,
+    to: 80,
+    type: 'double',
     step: 1,
-    prefix: "",
+    prefix: '',
     grid: true
   });
 
@@ -89,11 +89,15 @@ $(document).on("ready turbolinks:load", function() {
   });
 
   $('#slider').flexslider({
-    animation: "slide",
+    animation: 'slide',
     controlNav: false,
     animationLoop: false,
     slideshow: false,
     sync: '#carousel'
+  });
+
+  $('#search-icon').click(function() {
+    $('#search-box').fadeToggle('5000');
   });
 
   $(document).on('change', '#select-province', function(){
@@ -106,7 +110,7 @@ $(document).on("ready turbolinks:load", function() {
     })
 
     $('#user_ward_id').html($('<option>', {
-      text: I18n.t("address.select_ward")
+      text: I18n.t('address.select_ward')
     }));
   });
 
