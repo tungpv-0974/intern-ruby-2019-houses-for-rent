@@ -88,7 +88,7 @@ $(document).on("ready turbolinks:load", function() {
     })
 
     $('#user_ward_id').html($('<option>', {
-      text: I18n.t("views.address.select_ward")
+      text: I18n.t("address.select_ward")
     }));
   });
 

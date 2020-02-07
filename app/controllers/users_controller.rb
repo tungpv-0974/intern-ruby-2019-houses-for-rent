@@ -11,10 +11,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:info] = t "views.users.new.sign_up_ok"
+      flash[:info] = t "users.new.sign_up_ok"
       redirect_to @user
     else
-      flash.now[:danger] = t "views.users.new.create_fail"
+      flash.now[:danger] = t "users.new.create_fail"
       render :new
     end
   end
@@ -27,10 +27,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "views.users.edit.update_success"
+      flash[:success] = t "users.edit.update_success"
       redirect_to @user
     else
-      flash.now[:danger] = t "views.users.edit.update_fail"
+      flash.now[:danger] = t "users.edit.update_fail"
       render :edit
     end
   end
