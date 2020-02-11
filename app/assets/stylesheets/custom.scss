@@ -84,3 +84,49 @@ input.hidden {
   border-bottom: 1px white solid;
   margin: 5px 0;
 }
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid $white-d3;
+  border-left-width: 0;
+}
+
+.pagination {
+  border-left: 1px solid $white-d3;
+  .first, .prev, .page, .page, .next, .last {
+    padding : 0;
+    float: none;
+    border: none;
+  }
+}
+
+.icon-custom{
+  width: 25px;
+}
+
+#carousel img {
+  display: block;
+  opacity: .5;
+  cursor: pointer;
+}
+
+#carousel .flex-active-slide img {
+  opacity: 1;
+  cursor: default;
+}
+
+a:focus, a:hover, a:active {
+  outline: 0;
+  text-decoration: none;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

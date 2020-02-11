@@ -2,10 +2,38 @@ vi:
   base_title: "TÌM KIẾM NHÀ TRỌ"
   language: "Ngôn Ngữ"
   error: "Lỗi"
+  views:
+    pagination:
+      first: "« ĐẦU"
+      last: "CUỐI »"
+      previous: "‹ TRƯỚC"
+      next: "SAU ›"
+      truncate: "…"
   posts:
+    index:
+      title: "Tất cả bài đăng"
+      recent_post: "Bài đăng mới"
     create:
       created_success: "Đăng tin thành công"
       create_fail: "Đăng tin thất bại"
+    post:
+      bed_room: "Phòng ngủ "
+      bath_room: "Phòng tắm "
+      area: "Diện tích "
+      price: "Giá %{price} vnd/tháng"
+      post_by: "post by %{name}"
+      readmore: "Xem chi tiết"
+    show:
+      details: "Chi tiết"
+      not_found: "Không tìm thấy bài đăng"
+      price: "Giá %{price} vnd/tháng"
+      description: "Mô tả"
+      content: "Nội dung"
+      bed_room: "Phòng ngủ "
+      bath_room: "Phòng tắm "
+      area: "Diện tích "
+      address: "Địa chỉ"
+      post_by: "Người đăng"
   header:
     phone: "tel:++84348034499"
     login: "ĐĂNG NHẬP"

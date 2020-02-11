@@ -78,6 +78,24 @@ $(document).on("ready turbolinks:load", function() {
     $('#profile-image-upload').trigger('click');
   });
 
+  $('#carousel').flexslider({
+    animation: 'slide',
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 210,
+    itemMargin: 5,
+    asNavFor: '#slider'
+  });
+
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: '#carousel'
+  });
+
   $(document).on('change', '#select-province', function(){
     province_id = $(this).val();
     $.ajax({

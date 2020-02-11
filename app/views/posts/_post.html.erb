@@ -1,0 +1,32 @@
+<div class="row align-items-center mt-4">
+  <div class="col-lg-5">
+    <div class="view rounded z-depth-2 mb-lg-0 mb-4">
+      <%= image_tag post.post_baner, class: "img-fluid" %>
+      <a><div class="mask rgba-white-slight"></div></a>
+    </div>
+  </div>
+  <div class="col-lg-7">
+    <h4 class="font-weight-bold mb-3"><strong><%= post.title %></strong></h4>
+    <p class="line-clamp"><%= post.content %></p>
+    <h3>
+      <span class="badge badge-primary"><%= t "post.#{post.house_type}" %></span>
+      <span class="badge badge-warning">
+        <%= t(".price", price: number_to_currency(post.price, delimiter: ".")) %>
+      </span>
+    </h3>
+    <h4>
+      <%= t ".bed_room" %><span class="badge badge-secondary"><%= post.total_bedroom %></span>
+      <%= t ".bath_room" %><span class="badge badge-primary"><%= post.total_bathroom %></span>
+      <%= t ".area" %><span class="badge badge-default"><%= post.area %></span>
+    </h4>
+    <p>
+      <span class="badge badge-info"><%= t(".post_by", name: post.user_first_name) %></span>
+      <span class="badge badge-info"><%= post.created_at&.strftime(Settings.format_date) %></span>
+      <span class="badge badge-info"><%= post.ward_name %></span>
+      <span class="badge badge-info"><%= post.district_name %></span>
+      <span class="badge badge-info"><%= post.province_name %></span>
+    </p>
+    <%= link_to t(".readmore"), post, class:"btn btn-success btn-md btn-rounded mx-0" %>
+  </div>
+</div>
+<hr class="my-5">
