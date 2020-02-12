@@ -130,3 +130,28 @@ a:focus, a:hover, a:active {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.hide {
+  display: none;
+}
+
+.cover {
+  max-height: 300px;
+  .image1 {
+    object-fit: cover;
+  }
+}
+
+.slides-custom {
+  max-height: 300px;
+  .item-img {
+    object-fit: slides-custom;
+  }
+}
+
+#search-box {
+  position: sticky;
+  left: 5px;
+  top: 30px;
+  z-index: 999;
+}

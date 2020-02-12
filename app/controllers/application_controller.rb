@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :load_provinces
 
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
@@ -58,6 +58,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_posts
-    @posts = Post.page(params[:page]).per Settings.paginates_per_page
+    @posts = Post.order_by_created_desc.page(params[:page]).per Settings.paginates_per_page
   end
 end

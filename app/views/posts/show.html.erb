@@ -7,9 +7,9 @@
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div id="slider" class="flexslider">
-                  <ul class="slides">
+                  <ul class="slides slides-custom">
                     <% @post_pictures.each do |gallery| %>
-                      <li><%= image_tag gallery.image_url.url %></li>
+                      <li><%= image_tag gallery.image_url.url, class: "item-img" %></li>
                     <% end %>
                   </ul>
                 </div>
