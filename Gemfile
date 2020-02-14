@@ -27,7 +27,11 @@ gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails"
   gem "rubocop", "~> 0.54.0", require: false
+  gem "shoulda-matchers", require: false
+  gem "simplecov", require: false
 end
 
 group :development do
