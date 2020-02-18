@@ -119,6 +119,9 @@
             </div>
           </div>
         </div>
+        <% if current_user? @author %>
+          <%= link_to t(".edit_post"), edit_post_path(@post), class:"dropdown-item text-info" %>
+        <% end %>
       </div>
     </div>
   </section>

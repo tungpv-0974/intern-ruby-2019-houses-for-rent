@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get "/wards", to: "address#wards"
 
   resources :users
-  resources :posts, only: %i(new create show index)
+  resources :posts
 end

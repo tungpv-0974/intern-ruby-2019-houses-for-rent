@@ -1,0 +1,67 @@
+<%= form_for @post do |f| %>
+  <h2 class="mb-4"><%= t "post.create_post" %></h2>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="md-form md-outline">
+      <%= f.text_field :title, class: "form-control mb-2", id: "title" %>
+      <label for="title"><%= t "post.title" %></label>
+  </div>
+  <div class="form-row mb-1">
+    <div class="col md-form md-outline">
+      <%= f.select :house_type, options_for_select(house_types, @post.house_type),
+        {include_blank: t("post.house_type")},
+          {class: "browser-default custom-select"} %>
+    </div>
+    <div class="col md-form md-outline">
+      <%= f.number_field :total_bathroom, min: Settings.total_room_min,
+        class: "form-control mb-1", id: "total_bathroom" %>
+      <label for="total_bathroom"><%= t "post.total_bathroom" %></label>
+    </div>
+    <div class="col md-form md-outline">
+      <%= f.number_field :total_bedroom, min: Settings.total_room_min,
+        class: "form-control mb-1", id: "total_bedroom" %>
+      <label for="total_bedroom"><%= t "post.total_bedroom" %></label>
+    </div>
+    <div class="col md-form md-outline">
+      <%= f.number_field :area, min: Settings.total_room_min,
+        class: "form-control mb-1", id: "area" %>
+      <label for="area"><%= t "post.area" %></label>
+    </div>
+    <div class="col md-form md-outline">
+      <%= f.number_field :price, min: Settings.total_room_min,
+        class: "form-control mb-1", id: "price" %>
+      <label for="price"><%= t "post.price" %></label>
+    </div>
+  </div>
+  <div class="md-form md-outline">
+    <%= f.text_field :address, class: "form-control mb-2", id: "address" %>
+    <label for="address"><%= t "post.address" %></label>
+  </div>
+  <div class="form-row mb-2">
+    <div class="col">
+      <%= select_tag :province, options_for_select(@provinces || [], @post.province&.id),
+        include_blank: t("address.select_province"),
+          id: "select-province", class: "browser-default custom-select" %>
+    </div>
+    <div class="js-select-district-post col">
+      <%= render partial: "posts/district" %>
+    </div>
+    <div class="js-select-ward-post col" >
+      <%= render partial: "posts/ward" %>
+    </div>
+  </div>
+  <div class="md-form md-outline">
+    <%= f.text_area :content, id: "content", rows: 3,
+      class: "md-textarea form-control" %>
+    <label for="content"><%= t "post.content" %></label>
+  </div>
+  <div id="post_pictures">
+    <%= f.fields_for :post_pictures do |post_picture| %>
+      <%= render "post_picture_fields", f: post_picture %>
+    <% end %>
+    <div class="links d-flex flex-row-reverse">
+      <%= link_to_add_association t(".add_image"), f, :post_pictures,
+        class: "btn btn-info btn-sm p-2" %>
+    </div>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-default btn-lg btn-block" %>
+<% end %>

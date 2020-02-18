@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  POST_PARAMS = %i(title content total_bathroom total_bedroom area price
-    house_type user_id address ward_id).freeze
-  POST_PICTURE_PARAMS = %i(id title image_url post_id).freeze
+  POST_PARAMS = [:title, :content, :total_bathroom, :total_bedroom, :area,
+    :price, :house_type, :user_id, :address, :ward_id, post_pictures_attributes:
+      [:id, :title, :image_url, :post_id, :_destroy]].freeze
 
   enum house_type: {apartment: 0, motel_room: 1}
 
@@ -37,7 +37,7 @@ class Post < ApplicationRecord
   delegate :first_name, to: :user, prefix: true
   delegate :first, to: :post_pictures, prefix: :image
 
-  accepts_nested_attributes_for :post_pictures
+  accepts_nested_attributes_for :post_pictures, allow_destroy: true
 
   def post_baner
     default = Settings.avatar_default
