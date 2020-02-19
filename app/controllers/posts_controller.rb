@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: %i(new create)
-  before_action :correct_user, only: :destroy
-  before_action :load_post, only: :show
+  before_action :correct_user, only: %i(edit update destroy)
+  before_action :load_post, only: %i(show edit update)
 
   def index
     if params[:province]
@@ -27,17 +27,30 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build post_params
-    ActiveRecord::Base.transaction do
-      @post.save!
-      params[:post_pictures]["image_url"].each do |image|
-        @post_picture = @post.post_pictures.create!(image_url: image)
-      end
+    if @post.save
       flash[:success] = t ".created_success"
       redirect_to root_path
+    else
+      flash[:danger] = t ".create_fail"
+      render :new
     end
-  rescue StandardError
-    flash[:danger] = t ".create_fail"
-    render :new
+  end
+
+  def edit
+    @provinces = Province.pluck(:name, :id)
+    @districts = @post.districts&.pluck(:name, :id)
+    @wards = @post.wards&.pluck(:name, :id)
+    @post_pictures = @post.post_pictures
+  end
+
+  def update
+    if @post.update_attributes post_params
+      flash[:success] = t ".update_success"
+      redirect_to @post
+    else
+      flash.now[:danger] = t ".update_fail"
+      render :edit
+    end
   end
 
   def destroy; end
@@ -45,6 +58,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit Post::POST_PARAMS, Post::POST_PICTURE_PARAMS
+    params.require(:post).permit Post::POST_PARAMS
+  end
+
+  def correct_user
+    @post = current_user.posts.find_by id: params[:id]
+    redirect_to root_path unless @post
   end
 end

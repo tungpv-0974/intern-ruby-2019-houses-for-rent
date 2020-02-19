@@ -10,6 +10,8 @@ vi:
       next: "SAU ›"
       truncate: "…"
   posts:
+    new:
+      button_text: "ĐĂNG TIN"
     index:
       title: "Tất cả bài đăng"
       recent_post: "Bài đăng mới"
@@ -36,6 +38,14 @@ vi:
       area: "Diện tích "
       address: "Địa chỉ"
       post_by: "Người đăng"
+      edit_post: "Chỉnh sửa bài đăng"
+    edit:
+      title: Cập nhật bài đăng
+      button_text: "CẬP NHẬT"
+    form:
+      add_image: "Thêm ảnh"
+    post_picture_fields:
+      remove: "Xóa"
   header:
     phone: "tel:++84348034499"
     login: "ĐĂNG NHẬP"

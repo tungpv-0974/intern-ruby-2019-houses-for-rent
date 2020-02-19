@@ -17,6 +17,7 @@
 //= require jquery3
 //= require jquery.flexslider
 //= require jquery_ujs
+//= require cocoon
 //= require turbolinks
 //= require popper.min
 //= require bootstrap
