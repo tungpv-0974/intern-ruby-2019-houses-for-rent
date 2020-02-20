@@ -87,6 +87,16 @@
           </div>
         </div>
       </div>
+      <div class="col-md-8">
+        <% if @post_likes.any? %>
+          <h3><%= t(".post_like", count: @post_likes.count) %></h3>
+        <div class="paginator"><%= paginate @post_likes %></div>
+          <ul class="post-likes">
+            <%= render @post_likes %>
+          </ul>
+        <div class="paginator"><%= paginate @post_likes %></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

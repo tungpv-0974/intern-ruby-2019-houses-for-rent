@@ -155,3 +155,9 @@ a:focus, a:hover, a:active {
   top: 30px;
   z-index: 999;
 }
+
+.rounded-circle {
+  border-radius: 50%;
+  padding: 3px;
+  background-color: silver;
+}

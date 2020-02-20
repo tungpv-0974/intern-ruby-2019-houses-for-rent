@@ -26,6 +26,11 @@
       <span class="badge badge-info"><%= post.district_name %></span>
       <span class="badge badge-info"><%= post.province_name %></span>
     </p>
+    <div class="mt-4">
+      <i class="fa fa-paperclip"></i>
+      <span id="post_<%= post.id %>_favorites_count"><%= post.post_favorites.count %></span>
+      <%= render partial: "posts/favorites", locals: { post: post } %>
+    </div>
     <%= link_to t(".readmore"), post, class:"btn btn-success btn-md btn-rounded mx-0" %>
   </div>
 </div>

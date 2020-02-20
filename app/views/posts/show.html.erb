@@ -99,30 +99,36 @@
           </div>
         </div>
         <div class="card">
-            <div class="card-header" role="tab" id="headingThree3">
-              <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
-                href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-                <h5 class="mb-0"><%= t ".post_by" %></h5>
-              </a>
-            </div>
-            <div id="collapseThree3" class="collapse" role="tabpanel"
-              aria-labelledby="headingThree3" data-parent="#accordionEx">
-              <div class="card-body">
-                <span>
-                  <%= image_tag avatar_img(@author) , class: "avatar rounded-circle z-depth-1" %>
-                  <%= @author.last_name %>
-                  <%= @author.first_name %>
-                </span>
-                <span class="badge badge-info"><%= @author.email %></span>
-                <span class="badge badge-info"><%= @author.phone %></span>
-              </div>
+          <div class="card-header" role="tab" id="headingThree3">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
+              href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+              <h5 class="mb-0"><%= t ".post_by" %></h5>
+            </a>
+          </div>
+          <div id="collapseThree3" class="collapse" role="tabpanel"
+            aria-labelledby="headingThree3" data-parent="#accordionEx">
+            <div class="card-body">
+              <span>
+                <%= image_tag avatar_img(@author) , class: "avatar rounded-circle z-depth-1" %>
+                <%= @author.last_name %>
+                <%= @author.first_name %>
+              </span>
+              <span class="badge badge-info"><%= @author.email %></span>
+              <span class="badge badge-info"><%= @author.phone %></span>
             </div>
           </div>
         </div>
-        <% if current_user? @author %>
-          <%= link_to t(".edit_post"), edit_post_path(@post), class:"dropdown-item text-info" %>
-        <% end %>
+        <div class="mt-4">
+          <i class="fa fa-paperclip"></i>
+          <span id="post_<%= @post.id %>_favorites_count">
+            <%= @post.post_favorites.count %>
+          </span>
+          <%= render partial: "favorites", locals: { post: @post } %>
+        </div>
       </div>
+      <% if current_user? @author %>
+        <%= link_to t(".edit_post"), edit_post_path(@post), class:"dropdown-item text-info" %>
+      <% end %>
     </div>
   </section>
 </div>

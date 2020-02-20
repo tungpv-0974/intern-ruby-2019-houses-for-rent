@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get "/wards", to: "address#wards"
 
   resources :users
-  resources :posts
+  resources :posts do
+    resources :post_favorites, only: %i(create destroy), module: :posts
+  end
 end
