@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :load_user, only: %i(show edit update)
   before_action :logged_in_user, :correct_user, only: %i(edit update)
 
-  def show; end
+  def show
+    @post_likes = current_user.post_likes
+                              .page(params[:page]).per Settings.paginates_per_page
+  end
 
   def new
     @user = User.new

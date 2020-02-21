@@ -1,7 +1,7 @@
 vi:
   base_title: "TÌM KIẾM NHÀ TRỌ"
   language: "Ngôn Ngữ"
-  error: "Lỗi"
+  error: "Có lỗi xảy ra"
   views:
     pagination:
       first: "« ĐẦU"
@@ -46,6 +46,11 @@ vi:
       add_image: "Thêm ảnh"
     post_picture_fields:
       remove: "Xóa"
+    post_favorites:
+      unlike:
+        unclip_post: "Bỏ ghim bài viết"
+      like:
+        clip_post: "Ghim bài viết"
   header:
     phone: "tel:++84348034499"
     login: "ĐĂNG NHẬP"
@@ -138,6 +143,7 @@ vi:
       phone: "Số điện thoại:"
       birth_date: "Ngày sinh:"
       address: "Địa chỉ:"
+      post_like: "Số bài viết đã ghim: %{count}"
     edit:
       edit_profile: "Chỉnh sửa thông tin!!!"
       update_profile: "Cập nhật!"

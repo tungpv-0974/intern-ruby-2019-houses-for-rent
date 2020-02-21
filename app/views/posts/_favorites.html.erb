@@ -1,0 +1,11 @@
+<% unless current_user? @user %>
+  <div id="post_<%= post.id %>_favorites">
+    <% if current_user.post_favorites? post %>
+      <%= link_to t(".unclip_post"), post_post_favorite_path(post, post_id: post.id),
+        method: :delete, remote: true %>
+    <% else %>
+      <%= link_to t(".clip_post"), post_post_favorites_path(post),
+        method: :post, remote: true %>
+    <% end %>
+  </div>
+<% end %>

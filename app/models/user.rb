@@ -50,6 +50,10 @@ class User < ApplicationRecord
     temp_address.join(" - ")
   end
 
+  def post_favorites? post
+    self.post_favorites.by_post(post.id).any?
+  end
+
   class << self
     def digest string
       cost = if ActiveModel::SecurePassword.min_cost
