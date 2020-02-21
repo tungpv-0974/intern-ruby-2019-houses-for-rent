@@ -2,7 +2,9 @@
 @import 'bootstrap';
 @import 'color';
 
-body { padding-top: 75px;
+body {
+  padding-top: 75px;
+  padding-bottom: 150px;
   .jumcolor{
     background-color: #f9f9ff;
   }
@@ -161,3 +163,11 @@ a:focus, a:hover, a:active {
   padding: 3px;
   background-color: silver;
 }
+
+// .footer {
+//   position: relative;
+//   margin-top: -150px; /* negative value of footer height */
+//   height: 150px;
+//   clear:both;
+//   padding-top:20px;
+// }
