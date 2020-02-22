@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_010102) do
+ActiveRecord::Schema.define(version: 2020_02_22_062718) do
 
-  create_table "districts", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name", null: false, collation: "utf8_general_ci"
-    t.string "district_type", null: false, collation: "utf8_general_ci"
-    t.integer "province_id", null: false
+  create_table "districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "province_id"
   end
 
   create_table "identify_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_010102) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["user_id", "post_id"], name: "index_post_favorites_on_user_id_and_post_id", unique: true
   end
 
@@ -57,9 +58,9 @@ ActiveRecord::Schema.define(version: 2020_02_06_010102) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "provinces", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT", force: :cascade do |t|
-    t.string "name", null: false, collation: "utf8_general_ci"
-    t.string "province_type", null: false, collation: "utf8_general_ci"
+  create_table "provinces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,10 +84,10 @@ ActiveRecord::Schema.define(version: 2020_02_06_010102) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "wards", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "name", null: false, collation: "utf8_general_ci"
-    t.string "ward_type", null: false, collation: "utf8_general_ci"
-    t.integer "district_id", null: false
+  create_table "wards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "district_id"
   end
 
 end

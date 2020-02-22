@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_favorites, only: %i(create destroy), module: :posts
   end
+  resources :notifications, only: %i(update destroy)
+  mount ActionCable.server => '/cable'
 end

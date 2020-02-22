@@ -1,0 +1,16 @@
+<li id="noti_<%= notification.id %>">
+  <div class="row">
+    <div class="col-md-10">
+      <%= link_to notification_path(notification), remote: true, method: :patch do %>
+        <%= notification.user.first_name %>
+        <span><%= t ".clip_your_post" %></span>
+        <span><%= notification.created_at.strftime(Settings.format_date) %></span>
+      <% end %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to notification_path(notification), remote: true, method: :delete do %>
+        <div><span class="fa fa-times"></span></div>
+      <% end %>
+    </div>
+  </div>
+</li>

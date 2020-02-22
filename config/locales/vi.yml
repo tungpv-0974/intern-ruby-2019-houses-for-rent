@@ -9,6 +9,11 @@ vi:
       previous: "‹ TRƯỚC"
       next: "SAU ›"
       truncate: "…"
+  notifications:
+    notifications:
+      notifications: "Thông báo"
+    notification:
+      clip_your_post: "Đã ghim bài viết của bạn"
   posts:
     new:
       button_text: "ĐĂNG TIN"
