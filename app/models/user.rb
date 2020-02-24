@@ -28,6 +28,15 @@ class User < ApplicationRecord
   delegate :district_name, :province_name, :district, :province,
     :wards, :districts, to: :ward, allow_nil: true
 
+  extend FriendlyId
+  friendly_id :first_name, use: [:slugged, :finders]
+
+  acts_as_url :first_name, url_attribute: :slug, sync: true, limit: Settings.url_limit
+
+  def to_param
+    "#{id}-#{slug}"
+  end
+
   def authenticated? attribute, token
     digest = send "#{attribute}_digest"
     return unless digest
@@ -51,7 +60,7 @@ class User < ApplicationRecord
   end
 
   def post_favorites? post
-    self.post_favorites.by_post(post.id).any?
+    post_favorites.by_post(post.id).any?
   end
 
   class << self
