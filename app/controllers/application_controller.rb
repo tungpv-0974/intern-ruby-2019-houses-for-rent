@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale, :load_provinces
+  before_action :set_locale, :load_provinces, :load_notification_user
 
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
@@ -59,5 +59,9 @@ class ApplicationController < ActionController::Base
 
   def load_posts
     @posts = Post.order_by_created_desc.page(params[:page]).per Settings.paginates_per_page
+  end
+
+  def load_notification_user
+    @notifications = PostFavorite.where(post_id: current_user.posts.pluck(:id)).unseen if logged_in?
   end
 end

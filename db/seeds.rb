@@ -7,8 +7,4 @@
   password = "123456"
   user = User.create!(first_name: name, last_name: last_name, email: email,
   password: password)
-  3.times do |n|
-    title = FFaker::Book.title
-    user.posts.create!(title: title)
-  end
 end

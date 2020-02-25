@@ -32,7 +32,7 @@ module InternRuby2019HousesForRent
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
     config.i18n.available_locales = [:en, :vi]
     config.i18n.default_locale = :vi
-    config.assets.paths << Rails.root.join("app", "assets", "font", "roboto")
+    config.assets.paths << Rails.root.join("vendor", "assets", "font", "roboto")
     config.assets.paths << Rails.root.join("vendor", "assets", "mdb-addons")
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
