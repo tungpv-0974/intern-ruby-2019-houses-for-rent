@@ -37,7 +37,16 @@ class Post < ApplicationRecord
   delegate :first_name, to: :user, prefix: true
   delegate :first, to: :post_pictures, prefix: :image
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
+
+  acts_as_url :title, url_attribute: :slug, sync: true, limit: Settings.url_limit
+
   accepts_nested_attributes_for :post_pictures, allow_destroy: true
+
+  def to_param
+    "#{id}-#{slug}"
+  end
 
   def post_baner
     default = Settings.avatar_default

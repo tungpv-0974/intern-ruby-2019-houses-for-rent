@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
 
   def update
     if @notification.update_attributes(status: :seen)
-      respond_to :js
+      redirect_to @notification.user
     else
       respond_to do |format|
         format.js {render inline: "alert(I18n.t('.error'))"}
