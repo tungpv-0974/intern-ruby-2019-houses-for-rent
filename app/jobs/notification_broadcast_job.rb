@@ -1,7 +1,7 @@
 class NotificationBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(counter, notification, user)
+  def perform counter, notification, user
     ActionCable.server.broadcast "notification_channel_#{user.id}",
       counter: render_counter(counter), notification: render_notification(notification)
   end
@@ -10,11 +10,11 @@ class NotificationBroadcastJob < ApplicationJob
 
   def render_counter counter
     ApplicationController.renderer.render(partial: "notifications/counter",
-      locals: { counter: counter })
+      locals: {counter: counter})
   end
 
   def render_notification notification
     ApplicationController.renderer.render(partial: "notifications/notification",
-      locals: { notification: notification })
+      locals: {notification: notification})
   end
 end

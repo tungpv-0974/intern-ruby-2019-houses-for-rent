@@ -17,3 +17,6 @@ format_date: "%d/%m/%Y"
 total_room_min: 0
 total_room_max: 5
 url_limit: 50
+smtp_port: 587
+smtp_address: "smtp.gmail.com"
+plain: "plain"

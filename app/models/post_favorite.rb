@@ -14,6 +14,6 @@ class PostFavorite < ApplicationRecord
   private
 
   def notification_broadcast_job
-    NotificationBroadcastJob.perform_later(PostFavorite.where(post_id: self.post.user.posts.pluck(:id)).unseen.count, self, self.post.user)
+    NotificationBroadcastJob.perform_later(PostFavorite.where(post_id: post.user.posts.pluck(:id)).unseen.count, self, post.user)
   end
 end

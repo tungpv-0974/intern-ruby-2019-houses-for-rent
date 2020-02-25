@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
   root "static_pages#home"
 
   get "/signup", to: "users#new"
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: %i(update destroy)
   mount ActionCable.server => '/cable'
+  mount Sidekiq::Web, at: '/sidekiq'
 end
