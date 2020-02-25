@@ -9,6 +9,9 @@ vi:
       previous: "‹ TRƯỚC"
       next: "SAU ›"
       truncate: "…"
+  sessions:
+    new:
+      with_facebook: "Đăng nhập bằng Facebook"
   notifications:
     notifications:
       notifications: "Thông báo"
@@ -139,6 +142,7 @@ vi:
       phone: "Số điện thoại"
       birthdate: "Ngày sinh"
       address: "Địa chỉ"
+      fb_name: "Tên FB"
       create_my_account: "Tạo tài khoản"
       at_least_char: "Ít nhất 6 ký tự và 1 chữ số"
       not_found: "Không tìm thấy người dùng"

@@ -8,7 +8,7 @@
           <%= render "shared/error_messages", object: f.object %>
           <div class="form-row mb-4">
             <div class="col">
-              <%= f.text_field :first_name, class: "form-control", placeholder: t("users.new.firt_name") %>
+              <%= f.text_field :first_name, class: "form-control", placeholder: t("users.new.first_name") %>
             </div>
             <div class="col">
               <%= f.text_field :last_name, class: "form-control", placeholder: t("users.new.last_name") %>
@@ -22,6 +22,7 @@
           <%= f.password_field :password_confirmation, class: "form-control mb-4", placeholder: t("users.new.pass_confirm") %>
           <%= f.submit t("users.new.create_my_account"), class: "btn btn-info my-4 btn-block" %>
         <% end %>
+        <%= link_to t("sessions.new.with_facebook"), "/auth/facebook", id: "sign_in" %>
       </div>
     </div>
   </section>

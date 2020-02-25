@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  include ActiveModel::AttributeAssignment
   USER_PARAMS =
-    %i(first_name last_name email phone address ward_id birthdate avatar_url
+    %i(first_name last_name email phone address ward_id birthdate avatar
       password password_confirmation).freeze
 
   has_many :posts, dependent: :destroy
@@ -13,14 +14,15 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
-  mount_uploader :avatar_url, PictureUploader
+  mount_uploader :avatar, PictureUploader
 
   validates :password, presence: true, length: {minimum: Settings.pass_minimum},
     allow_nil: true
   validates :first_name, :last_name, presence: true,
-    length: {maximum: Settings.name_maximum}
+    length: {maximum: Settings.name_maximum}, unless: ->{provider.present?}
   validates :email, presence: true, length: {maximum: Settings.email_maximum},
-    format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false}
+    format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false},
+      unless: ->{provider.present?}
 
   has_secure_password
 
@@ -76,11 +78,21 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.assign_attributes(provider: auth.provider, uid: auth.uid,
+          name: auth.info.name, password: generate_unique_secure_token,
+          remote_avatar_url: auth.info.image, oauth_token: auth.credentials.token,
+          oauth_expires_at: Time.at(auth.credentials.expires_at))
+        user.save
+      end
+    end
   end
 
   private
 
   def downcase_email
-    email.downcase!
+    email&.downcase!
   end
 end

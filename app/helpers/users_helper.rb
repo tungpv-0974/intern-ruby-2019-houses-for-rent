@@ -7,6 +7,6 @@ module UsersHelper
 
   def avatar_img user
     avatar_default = Settings.avatar_default
-    user.avatar_url? ? user.avatar_url.url : avatar_default
+    user.avatar? ? user.avatar.url : avatar_default
   end
 end
