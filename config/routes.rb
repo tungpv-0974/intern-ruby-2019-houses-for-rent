@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/districts", to: "address#districts"
   get "/wards", to: "address#wards"
+  get "auth/:provider/callback", to: "sessions#create"
+  post "auth/:provider/callback", to: "sessions#create"
+  get "auth/failure", to: redirect("/")
 
   resources :users
   resources :posts do

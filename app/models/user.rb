@@ -18,9 +18,10 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.pass_minimum},
     allow_nil: true
   validates :first_name, :last_name, presence: true,
-    length: {maximum: Settings.name_maximum}
+    length: {maximum: Settings.name_maximum}, unless: -> { provider.present? }
   validates :email, presence: true, length: {maximum: Settings.email_maximum},
-    format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false}
+    format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false},
+      unless: -> { provider.present? }
 
   has_secure_password
 
@@ -76,11 +77,25 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+
+    def from_omniauth auth
+
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.name = auth.info.name
+        user.password = generate_unique_secure_token
+        user.remote_avatar_url_url = auth.info.image
+        user.oauth_token = auth.credentials.token
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+        user.save
+      end
+    end
   end
 
   private
 
   def downcase_email
-    email.downcase!
+    email.downcase! if email
   end
 end
