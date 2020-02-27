@@ -60,6 +60,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.middleware.use I18n::JS::Middleware
+  config.i18n.default_locale = :vi
+
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: ENV['HOST'] }
