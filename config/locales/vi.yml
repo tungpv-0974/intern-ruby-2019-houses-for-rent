@@ -14,6 +14,12 @@ vi:
       notifications: "Thông báo"
     notification:
       clip_your_post: "Đã ghim bài viết của bạn"
+  notification_mailer:
+    notification_email:
+      new_notification: "Bạn có thông báo mới"
+      hi: "Chào "
+      intro: "Có người vừa ghim bài viết của bạn"
+      click: "Bấm vào để xem nguời đó là ai?"
   posts:
     new:
       button_text: "ĐĂNG TIN"

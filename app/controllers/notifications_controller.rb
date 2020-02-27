@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
       redirect_to @notification.user
     else
       respond_to do |format|
-        format.js {render inline: "alert(I18n.t('.error'))"}
+        format.js{render inline: "alert(I18n.t('.error'))"}
       end
     end
   end
@@ -16,7 +16,7 @@ class NotificationsController < ApplicationController
       respond_to :js
     else
       respond_to do |format|
-        format.js {render inline: "alert(I18n.t('.error'))"}
+        format.js{render inline: "alert(I18n.t('.error'))"}
       end
     end
   end

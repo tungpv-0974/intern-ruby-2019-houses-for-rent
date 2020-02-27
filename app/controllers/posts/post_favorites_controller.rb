@@ -2,8 +2,10 @@ class Posts::PostFavoritesController < ApplicationController
   before_action :logged_in_user, :set_post, only: %i(create destroy)
 
   def create
-    if current_user.post_favorites.by_post(@post.id).first_or_create
+    @notification = current_user.post_favorites.by_post(@post.id).first_or_create
+    if @notification
       respond_to :js
+      NotificationEmailWorker.perform_at(30.seconds.from_now, @post.user.email, user_url(@notification.user))
     else
       respond_to do |format|
         format.js{render inline: "alert(I18n.t('.error'))"}
