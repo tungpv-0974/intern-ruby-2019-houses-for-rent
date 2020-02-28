@@ -43,6 +43,18 @@
                   </div>
                 </div>
                 <div class="clearfix"></div>
+                <% if @user.name %>
+                  <div class="bot-border"></div>
+                <div class="row">
+                  <div class="col-sm-5 col-xs-5 title">
+                   <%= t "users.new.fb_name"%>
+                  </div>
+                  <div class="col-sm-7 col-xs-7">
+                    <%= @user.name %>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <% end %>
                 <div class="bot-border"></div>
                 <div class="row">
                   <div class="col-sm-5 col-xs-5 title">

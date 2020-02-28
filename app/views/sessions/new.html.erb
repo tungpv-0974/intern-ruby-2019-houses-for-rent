@@ -21,6 +21,7 @@
           </div>
           <%= f.submit t("header.login"), class: "btn btn-info btn-block my-4" %>
         <% end %>
+        <%= link_to t(".with_facebook"), "/auth/facebook", id: "sign_in" %>
         <p>
           <%= t "users.login.not_a_member" %>
           <%= link_to t("users.new.title"), signup_path %>

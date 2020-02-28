@@ -2,11 +2,15 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by email: params[:session][:email].downcase
-
-    if user&.authenticate params[:session][:password]
-      log_in user
+    if params[:session]
+      user = User.find_by email: params[:session][:email].downcase
+      user&.authenticate params[:session][:password]
       check_remember user
+    else
+      user = User.from_omniauth(request.env["omniauth.auth"])
+    end
+
+    if log_in user
       redirect_back_or user
     else
       flash.now[:danger] = t "static_pages.users.login.invalid"
