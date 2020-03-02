@@ -22,7 +22,7 @@ class User < ApplicationRecord
     length: {maximum: Settings.name_maximum}, unless: ->{provider.present?}
   validates :email, presence: true, length: {maximum: Settings.email_maximum},
     format: {with: Settings.email_regex}, uniqueness: {case_sensitive: false},
-      unless: ->{provider.present?}
+      unless: ->{provider.present? && email.blank?}
 
   has_secure_password
 
