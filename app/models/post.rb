@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   has_many :like_users, through: :post_favorites, source: :user
   belongs_to :ward, optional: true
 
+  validates :title, length: {minimum: Settings.title_min, maximum: Settings.title_max}
   validates :user_id, :ward_id, :title, :content, :total_bathroom,
     :total_bedroom, :price, :house_type, :address, presence: true
   validates :total_bathroom, :total_bedroom,

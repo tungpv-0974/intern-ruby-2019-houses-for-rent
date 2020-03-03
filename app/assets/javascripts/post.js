@@ -11,4 +11,20 @@ $(document).on('ready turbolinks:load', function() {
   $('textarea.form-control').each(function() {
     checkForInput(this);
   });
+
+  $('#show_more').click(function(){
+    var dots = $('#dots');
+    var moreText = $('#more');
+    var btnText = $('#show_more');
+
+    if (dots.css('display') === 'none') {
+      dots.css('display', 'inline');
+      btnText.html(I18n.t('posts.show.show_more'));
+      moreText.css('display', 'none');
+    } else {
+      dots.css('display', 'none');
+      btnText.html(I18n.t('posts.show.show_less'));
+      moreText.css('display', 'inline');
+    }
+  });
 });
