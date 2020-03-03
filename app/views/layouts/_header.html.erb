@@ -28,7 +28,7 @@
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <a class="nav-item mt-2 mr-4" id ="search-icon"><i class="fa fa-search fa-2x"></i></a>
         <% if logged_in? %>
-          <li><%= link_to t("post.create_post"), new_post_path, class: "btn btn-default" %></li>
+          <li><%= link_to t("post.create_post"), new_post_path, class: "btn btn-default", "data-turbolinks" => false %></li>
           <li class="d-none d-xl-inline-block ml-1 mt-2 ml-2 mr-2" id="noti">
             <%= render "notifications/notifications" %>
           </li>

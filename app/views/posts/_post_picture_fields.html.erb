@@ -1,12 +1,14 @@
 <div class="nested-fields form-row">
-  <div class="custom-file mb-4 col-10">
-    <%= f.file_field :image_url, multiple: false,
-      class: "custom-file-input", id: "inputGroupFile01" %>
-    <label class="custom-file-label" for="inputGroupFile01">
-      <%= t "post.add_picture" %>
-    </label>
+  <div class="mb-4 col-4">
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache, value: f.object.image_cache %>
   </div>
-  <div class="mb-4 col-2">
+  <div class="thumb mb-4 col-4">
+    <% if f.object.image.url.present? %>
+      <%= image_tag f.object.image.url, class: "img-thumbnail" %>
+    <% end %>
+  </div>
+  <div class="mb-4 col-4">
     <%= link_to_remove_association t(".remove"), f, class: "btn btn-danger btn-sm mt-0" %>
   </div>
 </div>

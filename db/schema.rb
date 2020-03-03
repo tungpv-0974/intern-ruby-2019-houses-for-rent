@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_094205) do
+ActiveRecord::Schema.define(version: 2020_03_03_042247) do
 
   create_table "districts", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false, collation: "utf8_general_ci"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_094205) do
 
   create_table "post_pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.string "image_url"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"

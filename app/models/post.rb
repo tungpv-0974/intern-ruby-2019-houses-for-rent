@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   POST_PARAMS = [:title, :content, :total_bathroom, :total_bedroom, :area,
     :price, :house_type, :user_id, :address, :ward_id, post_pictures_attributes:
-      [:id, :title, :image_url, :post_id, :_destroy]].freeze
+      [:id, :title, :image, :post_id, :_destroy]].freeze
 
   enum house_type: {apartment: 0, motel_room: 1}
 
@@ -50,7 +50,7 @@ class Post < ApplicationRecord
 
   def post_baner
     default = Settings.avatar_default
-    post_pictures.empty? ? default : image_first.image_url.url
+    post_pictures.empty? ? default : image_first.image.url
   end
 
   def self.search_post params
