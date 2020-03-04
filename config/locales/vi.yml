@@ -24,6 +24,8 @@ vi:
       intro: "Có người vừa ghim bài viết của bạn"
       click: "Bấm vào để xem nguời đó là ai?"
   posts:
+    destroy:
+      update_success: "Cập nhật thành công"
     update:
       update_success: "Cập nhật thành công"
       update_fail: "Cập nhật thất bại"
@@ -50,12 +52,15 @@ vi:
       price: "Giá %{price}/tháng"
       description: "Mô tả"
       content: "Nội dung"
-      bed_room: "Phòng ngủ "
-      bath_room: "Phòng tắm "
-      area: "Diện tích "
+      bed_room: "Số phòng ngủ: "
+      bath_room: "Số phòng tắm: "
+      area: "Diện tích: %{area} m2"
       address: "Địa chỉ"
       post_by: "Người đăng"
       edit_post: "Chỉnh sửa bài đăng"
+      show_less: "Rút gọn"
+      show_more: "Xem thêm"
+      dot: "..."
     edit:
       title: Cập nhật bài đăng
       button_text: "CẬP NHẬT"
@@ -170,3 +175,13 @@ vi:
       update_profile: "Cập nhật!"
       update_success: "Cập nhật thông tin thành công!"
       update_fail: "Cập nhật thông tin không thành công"
+  trashs:
+    index:
+      title: "BÀI VIẾT ĐÃ XÓA!"
+    trash:
+      confirm_undo: "Bạn có muốn khôi phục bài viết này?"
+  posteds:
+    index:
+      title: "BÀI VIẾT ĐANG HOẠT ĐỘNG"
+    posted:
+      confirm_del: "Bạn có thực sự muốn xóa bài viết??"

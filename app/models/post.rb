@@ -4,6 +4,7 @@ class Post < ApplicationRecord
       [:id, :title, :image, :post_id, :_destroy]].freeze
 
   enum house_type: {apartment: 0, motel_room: 1}
+  enum active: [:active, :inactive]
 
   belongs_to :user
   has_many :post_pictures, dependent: :destroy
@@ -11,6 +12,7 @@ class Post < ApplicationRecord
   has_many :like_users, through: :post_favorites, source: :user
   belongs_to :ward, optional: true
 
+  validates :title, length: {minimum: Settings.title_min, maximum: Settings.title_max}
   validates :user_id, :ward_id, :title, :content, :total_bathroom,
     :total_bedroom, :price, :house_type, :address, presence: true
   validates :total_bathroom, :total_bedroom,

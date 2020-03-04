@@ -40,6 +40,8 @@
              </span>
             </a>
             <div class="dropdown-menu dropdown-primary dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Posteds", posteds_path, class:"dropdown-item" %>
+              <%= link_to "Trashs", trashs_path, class:"dropdown-item" %>
               <%= link_to t("static_pages.header.profile"), current_user, class:"dropdown-item" %>
               <%= link_to t("static_pages.header.update_profile"), edit_user_path(current_user), class:"dropdown-item" %>
               <%= link_to t("static_pages.header.log_out"), logout_path, method: :delete, class:"dropdown-item" %>
