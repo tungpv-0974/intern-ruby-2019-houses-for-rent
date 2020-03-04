@@ -161,3 +161,8 @@ a:focus, a:hover, a:active {
   padding: 3px;
   background-color: silver;
 }
+
+.img-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}

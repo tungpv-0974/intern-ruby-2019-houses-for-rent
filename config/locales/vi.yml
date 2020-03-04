@@ -24,6 +24,9 @@ vi:
       intro: "Có người vừa ghim bài viết của bạn"
       click: "Bấm vào để xem nguời đó là ai?"
   posts:
+    update:
+      update_success: "Cập nhật thành công"
+      update_fail: "Cập nhật thất bại"
     new:
       button_text: "ĐĂNG TIN"
     index:

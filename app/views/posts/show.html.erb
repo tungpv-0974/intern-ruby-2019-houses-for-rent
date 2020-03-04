@@ -9,14 +9,14 @@
                 <div id="slider" class="flexslider">
                   <ul class="slides slides-custom">
                     <% @post_pictures.each do |gallery| %>
-                      <li><%= image_tag gallery.image_url.url, class: "item-img" %></li>
+                      <li><%= image_tag gallery.image.url, class: "item-img" %></li>
                     <% end %>
                   </ul>
                 </div>
                 <div id="carousel" class="flexslider ">
                   <ul class="slides ">
                     <% @post_pictures.each do |gallery| %>
-                      <li><%= image_tag(gallery.image_url.url) %></li>
+                      <li><%= image_tag(gallery.image.url) %></li>
                     <% end %>
                   </ul>
                 </div>
