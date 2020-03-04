@@ -2,10 +2,37 @@
 @import 'bootstrap';
 @import 'color';
 
-body { padding-top: 75px;
+body {
+  padding-top: 75px;
   .jumcolor{
-    background-color: #f9f9ff;
+    background-color: white;
   }
+}
+
+h1.title {
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 13px;
+  border-bottom: 1px solid white;
+}
+
+i.fa.fa-edit.fa-2x {
+  color: blue;
+  float: right;
+}
+
+.content {
+  height: 200%;
+  background-color: white;
+}
+.content_inner {
+  height: 50%;
+  overflow-y: auto;
+  padding: 50px 20%;
+}
+
+#more {
+  display: none;
 }
 
 .logo-icon {

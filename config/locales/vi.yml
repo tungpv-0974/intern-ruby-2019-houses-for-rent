@@ -50,12 +50,15 @@ vi:
       price: "Giá %{price}/tháng"
       description: "Mô tả"
       content: "Nội dung"
-      bed_room: "Phòng ngủ "
-      bath_room: "Phòng tắm "
-      area: "Diện tích "
+      bed_room: "Số phòng ngủ: "
+      bath_room: "Số phòng tắm: "
+      area: "Diện tích: %{area} m2"
       address: "Địa chỉ"
       post_by: "Người đăng"
       edit_post: "Chỉnh sửa bài đăng"
+      show_less: "Rút gọn"
+      show_more: "Xem thêm"
+      dot: "..."
     edit:
       title: Cập nhật bài đăng
       button_text: "CẬP NHẬT"

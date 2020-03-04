@@ -20,3 +20,6 @@ url_limit: 50
 smtp_port: 587
 smtp_address: "smtp.gmail.com"
 plain: "plain"
+title_min: 10
+title_max: 200
+index_split: 350

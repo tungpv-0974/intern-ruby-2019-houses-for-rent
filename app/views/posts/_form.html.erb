@@ -60,7 +60,7 @@
     <% end %>
     <div class="links d-flex flex-row-reverse">
       <%= link_to_add_association t(".add_image"), f, :post_pictures,
-        class: "btn btn-info btn-sm p-2" %>
+        class: "btn btn-info btn-sm p-2", "data-turbolinks" => false %>
     </div>
   </div>
   <%= f.submit yield(:button_text), class: "btn btn-default btn-lg btn-block" %>
