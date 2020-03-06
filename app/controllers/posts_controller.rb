@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     end
     @posts = @posts.order_by_created_desc.page(params[:page])
                    .per Settings.paginates_per_page
+    respond_to :js
   end
 
   def show

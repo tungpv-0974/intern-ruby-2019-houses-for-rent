@@ -1,5 +1,5 @@
 <div class="search-field">
-  <%= form_tag(posts_path, method: "get", class: "search-form") do %>
+  <%= form_tag(posts_path, method: "get", remote: true, class: "search-form") do %>
     <div class="row">
       <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
       </div>
@@ -9,7 +9,7 @@
             id: "select-province", class: "browser-default custom-select" %>
       </div>
       <div class="col-lg-3 col-md-6 col-xs-6">
-        <div class="js-select-district-post col",>
+        <div class="js-select-district-post col">
           <%= render partial: "posts/district" %>
         </div>
       </div>
@@ -31,7 +31,7 @@
         <%= text_field_tag :area_range, nil, id: "range2" %>
       </div>
       <div class="col-lg-4 d-flex justify-content-end">
-        <%= button_tag t("static_pages.baner.search_properties"), class: "primary-btn" %>
+        <%= button_tag t("static_pages.baner.search_properties"), class: "primary-btn ajax-load" %>
       </div>
     </div>
   <% end %>

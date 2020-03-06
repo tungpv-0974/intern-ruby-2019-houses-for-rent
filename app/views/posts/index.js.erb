@@ -1,2 +1,4 @@
-$('#posts').html('<%= j render(@posts) %>');
-$('.paginator').html('<%= j paginate(@posts, remote: true) %>');
+$('.spinner').delay(1000).hide(0, function(){
+  $('#posts').html('<%= j render(@posts) %>');
+  $('.paginator').html('<%= j paginate(@posts, remote: true) %>');
+});
