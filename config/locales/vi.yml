@@ -2,6 +2,10 @@ vi:
   base_title: "TÌM KIẾM NHÀ TRỌ"
   language: "Ngôn Ngữ"
   error: "Có lỗi xảy ra"
+  layouts:
+    header:
+      posteds: "Bài đăng"
+      trashs: "Thùng Rác"
   views:
     pagination:
       first: "« ĐẦU"
