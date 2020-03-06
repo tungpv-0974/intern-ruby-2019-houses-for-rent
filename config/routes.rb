@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :post_favorites, only: %i(create destroy), module: :posts
   end
   resources :notifications, only: %i(update destroy)
+  resources :posteds, :trashs, only: :index
+
   mount ActionCable.server => '/cable'
   mount Sidekiq::Web, at: '/sidekiq'
 end

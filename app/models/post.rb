@@ -4,6 +4,7 @@ class Post < ApplicationRecord
       [:id, :title, :image, :post_id, :_destroy]].freeze
 
   enum house_type: {apartment: 0, motel_room: 1}
+  enum active: [:inactive, :active]
 
   belongs_to :user
   has_many :post_pictures, dependent: :destroy

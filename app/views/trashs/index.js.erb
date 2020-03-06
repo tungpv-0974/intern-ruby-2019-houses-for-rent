@@ -1,0 +1,2 @@
+$('#trashs').html('<%= j render partial: "trash", collection: @trashs %>');
+$('.paginator').html('<%= j paginate(@trashs, remote: true) %>');

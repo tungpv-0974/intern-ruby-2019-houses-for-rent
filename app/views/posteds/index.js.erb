@@ -1,0 +1,2 @@
+$('#posteds').html('<%= j render partial: "posted", collection: @posteds %>');
+$('.paginator').html('<%= j paginate(@posteds, remote: true) %>');
