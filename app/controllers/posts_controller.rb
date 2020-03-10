@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: %i(new create)
   before_action :correct_user, only: %i(edit update destroy)
-  before_action :load_post, only: %i(show edit update)
+  before_action :load_post, only: %i(show edit update destroy)
 
   def index
     if params[:province]
@@ -53,7 +53,17 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    status = @post.active? ? :inactive : :active
+
+    if @post.update_attributes active: status
+      respond_to :js
+    else
+      respond_to do |format|
+        format.js{render inline: "alert(I18n.t('trashs.index.fail'))"}
+      end
+    end
+  end
 
   private
 

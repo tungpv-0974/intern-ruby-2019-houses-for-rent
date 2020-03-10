@@ -2,6 +2,10 @@ vi:
   base_title: "TÌM KIẾM NHÀ TRỌ"
   language: "Ngôn Ngữ"
   error: "Có lỗi xảy ra"
+  layouts:
+    header:
+      posteds: "Bài đăng"
+      trashs: "Thùng Rác"
   views:
     pagination:
       first: "« ĐẦU"
@@ -24,6 +28,8 @@ vi:
       intro: "Có người vừa ghim bài viết của bạn"
       click: "Bấm vào để xem nguời đó là ai?"
   posts:
+    destroy:
+      update_success: "Cập nhật thành công"
     update:
       update_success: "Cập nhật thành công"
       update_fail: "Cập nhật thất bại"
@@ -173,3 +179,15 @@ vi:
       update_profile: "Cập nhật!"
       update_success: "Cập nhật thông tin thành công!"
       update_fail: "Cập nhật thông tin không thành công"
+  trashs:
+    index:
+      title: "BÀI VIẾT ĐÃ XÓA!"
+      success: "Thành công!"
+      fail: "Có lỗi xảy ra!"
+    trash:
+      confirm_undo: "Bạn có muốn khôi phục bài viết này?"
+  posteds:
+    index:
+      title: "BÀI VIẾT ĐANG HOẠT ĐỘNG"
+    posted:
+      confirm_del: "Bạn có thực sự muốn xóa bài viết??"
